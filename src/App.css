@@ -5,7 +5,7 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #e3f2e1; /* Verde claro */
+  background-color: #d0d0d1; /* Verde claro */
 }
 
 .logo {
@@ -18,14 +18,14 @@ form {
   flex-direction: column; /* Cambiar la dirección a columna */
   gap: 15px;
   padding: 20px;
-  background-color: #f5e3d0; /* Beige */
+  background-color: #4191d3; /* Beige */
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 label {
   font-weight: bold;
-  color: #664d03; /* Marrón */
+  color: #ffffff; /* Marrón */
 }
 
 input[type='text'],

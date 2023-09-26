@@ -1,4 +1,3 @@
-//Signin.js
 import React, { useState } from 'react';
 import './App.css';
 import { ToastContainer, toast } from 'react-toastify';
@@ -7,9 +6,9 @@ import logo from './assets/python.png';
 
 function App() {
   const [formData, setFormData] = useState({
-    alumno: '',
+    alumno: '', // Cambiado de "alumno" a "nombre"
     opinion: '',
-    calificacion: 0
+    calificacion: '' // Cambiado a una cadena vacía
   });
 
   const handleChange = (e) => {
@@ -29,7 +28,7 @@ function App() {
     e.preventDefault();
 
     // Realiza la petición a la API
-    fetch('https://cloudvitals.azurewebsites.net/api/signin', {
+    fetch('https://dicomate-test.azurewebsites.net/api/opiniones', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -44,12 +43,14 @@ function App() {
     })
     .then(data => {
       // La respuesta de la API estará en la variable "data"
-      console.log(data);
+      console.log(data["Response"]);
       // Mostrar la notificación con el retorno
-      toast.success(`Evaluación registrada!: ${data}`);
+      toast.success(`Evaluación registrada!: ${data["Response"]}`);
     })
     .catch(error => {
       console.error('Error en la petición:', error);
+      // Mostrar una notificación de error
+      toast.error('Error en la petición. Inténtalo de nuevo.');
     });
   };
   
@@ -62,8 +63,8 @@ function App() {
           Nombre del Alumno:
           <input
             type="text"
-            name="nombre"
-            value={formData.nombre}
+            name="alumno"
+            value={formData.alumno}
             onChange={handleChange}
           />
         </label>
@@ -79,7 +80,7 @@ function App() {
         <label>
           Calificación (0-10):
           <input
-            type="number"
+            type="number" // Cambiado a type="number"
             name="calificacion"
             value={formData.calificacion}
             onChange={handleChange}
